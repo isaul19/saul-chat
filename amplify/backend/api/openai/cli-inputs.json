@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/gpt-turbo": {
+      "name": "/gpt-turbo",
+      "lambdaFunction": "gptTurboFunction",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

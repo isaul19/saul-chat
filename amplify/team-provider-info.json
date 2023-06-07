@@ -1,0 +1,26 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-saulchat-dev-173927-authRole",
+      "UnauthRoleArn": "arn:aws:iam::549095003249:role/amplify-saulchat-dev-173927-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::549095003249:role/amplify-saulchat-dev-173927-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-saulchat-dev-173927-deployment",
+      "UnauthRoleName": "amplify-saulchat-dev-173927-unauthRole",
+      "StackName": "amplify-saulchat-dev-173927",
+      "StackId": "arn:aws:cloudformation:us-east-1:549095003249:stack/amplify-saulchat-dev-173927/2ad220a0-0584-11ee-8914-0a366596ccb1",
+      "AmplifyAppId": "d32vkqjztp4926"
+    },
+    "categories": {
+      "function": {
+        "gptTurboFunction": {
+          "deploymentBucketName": "amplify-saulchat-dev-173927-deployment",
+          "s3Key": "amplify-builds/gptTurboFunction-714f7339366f6a546136-build.zip"
+        }
+      },
+      "api": {
+        "openai": {}
+      }
+    }
+  }
+}

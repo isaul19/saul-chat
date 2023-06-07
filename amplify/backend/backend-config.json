@@ -1,0 +1,43 @@
+{
+  "api": {
+    "openai": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "gptTurboFunction"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "gptTurboFunction": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_gptTurboFunction_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "gptTurboFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_gptTurboFunction_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "gptTurboFunction"
+        }
+      ]
+    }
+  }
+}
