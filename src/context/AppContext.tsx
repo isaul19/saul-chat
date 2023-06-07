@@ -14,6 +14,7 @@ const AppProvider = ({ children }: ComponentChildren) => {
       return;
     }
     newMessage({ from: "user", content: inputValue });
+    newMessage({ from: "bot", content: "Hola soy chatgpt" });
     setInputValue("");
   };
 

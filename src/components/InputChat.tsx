@@ -9,10 +9,9 @@ export default function InputChat() {
       className="fixed pb-5 bottom-0 w-11/12 max-w-3xl bg-slate-100"
       onSubmit={onSubmitForm}
     >
-      <div className="rounded-lg overflow-hidden flex">
+      <div className="rounded-lg overflow-hidden flex shadow-md">
         <input
-          className="w-full p-3 outline-none "
-          type="text"
+          className="w-full p-3 outline-none"
           placeholder="Ingresa una pregunta"
           onChange={onChangeInput}
           value={inputValue}

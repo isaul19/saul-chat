@@ -7,6 +7,8 @@ export default function ContentChat() {
   return (
     <div className="flex flex-col justify-between pt-5">
       <div className="flex flex-col space-y-5">
+        <h1 className="text-center font-bold">Saul - Chat</h1>
+
         {messages.map((message, i) => (
           <div key={message.from + i}>
             {message.from === "user" ? (
