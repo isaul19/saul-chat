@@ -2,7 +2,7 @@ import { AiOutlineSend } from "react-icons/ai";
 import { useApp } from "../context/AppContext";
 
 export default function InputChat() {
-  const { onSubmitForm, inputValue, onChangeInput } = useApp();
+  const { onSubmitForm, inputValue, onChangeInput, isLoading } = useApp();
 
   return (
     <form
@@ -16,7 +16,10 @@ export default function InputChat() {
           onChange={onChangeInput}
           value={inputValue}
         />
-        <button className="pr-2">
+        <button
+          className={`pr-2 ${isLoading ? "text-gray-400" : "text-black"}`}
+          disabled={isLoading}
+        >
           <AiOutlineSend size={25} />
         </button>
       </div>

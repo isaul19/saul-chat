@@ -6,6 +6,7 @@ export interface AppContextState {
   onSubmitForm: EventHandler<any>;
   newMessage: (message: Message) => void;
   messages: Message[];
+  isLoading: boolean;
 }
 
 export interface ComponentChildren {

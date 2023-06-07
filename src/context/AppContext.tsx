@@ -1,26 +1,39 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { AppContextState, ComponentChildren, Message } from "../types";
-import { scrollMaxBottom } from "../helpers";
+import { gptResponse, scrollMaxBottom } from "../helpers";
 
 const AppContext = createContext<AppContextState>({} as AppContextState);
 
 const AppProvider = ({ children }: ComponentChildren) => {
   const [inputValue, setInputValue] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
 
   const onSubmitForm = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!inputValue.trim()) {
-      return;
-    }
+
+    if (!inputValue.trim()) return;
+
     newMessage({ from: "user", content: inputValue });
-    newMessage({ from: "bot", content: "Hola soy chatgpt" });
-    setInputValue("");
+    openaiMessage();
   };
 
   const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setInputValue(value);
+  };
+
+  const openaiMessage = async () => {
+    setIsLoading(true);
+    try {
+      const data = await gptResponse(inputValue);
+      newMessage({ from: "bot", content: data });
+    } catch (error) {
+      newMessage({ from: "bot", content: "Hubo un error" });
+    } finally {
+      setInputValue("");
+      setIsLoading(false);
+    }
   };
 
   const newMessage = ({ from, content }: Message) => {
@@ -33,7 +46,14 @@ const AppProvider = ({ children }: ComponentChildren) => {
 
   return (
     <AppContext.Provider
-      value={{ inputValue, onChangeInput, onSubmitForm, messages, newMessage }}
+      value={{
+        inputValue,
+        onChangeInput,
+        onSubmitForm,
+        messages,
+        newMessage,
+        isLoading
+      }}
     >
       {children}
     </AppContext.Provider>
