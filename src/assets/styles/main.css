@@ -9,5 +9,9 @@ body,
 }
 
 body {
-  @apply bg-slate-100 relative;
+  @apply relative;
+}
+
+input {
+  --tw-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
