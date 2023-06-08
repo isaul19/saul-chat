@@ -33,7 +33,6 @@ const AppProvider = ({ children }: ComponentChildren) => {
     } catch (error) {
       newMessage({ from: "bot", content: "Hubo un error" });
     } finally {
-      setInputValue("");
       setIsLoading(false);
     }
   };
