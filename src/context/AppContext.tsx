@@ -24,10 +24,12 @@ const AppProvider = ({ children }: ComponentChildren) => {
   };
 
   const openaiMessage = async () => {
+    const inputValueOld = inputValue;
+    setInputValue("");
     setIsLoading(true);
     try {
-      const data = await gptResponse(inputValue);
-      newMessage({ from: "bot", content: data });
+      const data = await gptResponse(inputValueOld);
+      newMessage({ from: "bot", content: data.data });
     } catch (error) {
       newMessage({ from: "bot", content: "Hubo un error" });
     } finally {

@@ -31,6 +31,14 @@
         }
       ]
     },
+    "AMPLIFY_function_gptTurboFunction_openaiKey": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "gptTurboFunction"
+        }
+      ]
+    },
     "AMPLIFY_function_gptTurboFunction_s3Key": {
       "usedBy": [
         {

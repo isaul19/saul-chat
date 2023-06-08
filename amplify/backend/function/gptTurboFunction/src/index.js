@@ -1,15 +1,42 @@
 /**
- * @type {import('@types/aws-lambda').APIGatewayProxyHandler}
+ * @typedef {import('aws-lambda').APIGatewayProxyEvent} APIGatewayProxyEvent
+ * @typedef {import('aws-lambda').APIGatewayProxyResult} APIGatewayProxyResult
  */
-exports.handler = async (event) => {
-  console.log(`EVENT: ${JSON.stringify(event)}`);
+
+/**
+ * @type {import('aws-lambda').APIGatewayProxyHandler}
+ */
+
+const { Configuration, OpenAIApi } = require("openai");
+
+const OPENAI_KEY = process.env.OPENAI_KEY;
+const configuration = new Configuration({
+  apiKey: OPENAI_KEY
+});
+const openai = new OpenAIApi(configuration);
+
+const buildResponse = ({ code, content }) => {
   return {
-    statusCode: 200,
-    //  Uncomment below to enable CORS requests
+    statusCode: code,
     headers: {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Headers": "*"
     },
-    body: JSON.stringify("Hello from Lambda!")
+    body: JSON.stringify({ data: content })
   };
+};
+
+exports.handler = async (event /** @type {APIGatewayProxyEvent} */) => {
+  const prompt = event.body;
+  let openaiResponse = await openai.createChatCompletion({
+    model: "gpt-3.5-turbo",
+    messages: [{ role: "user", content: prompt }],
+    temperature: 0.9,
+    max_tokens: 2048,
+    frequency_penalty: 0.5,
+    presence_penalty: 0.5
+  });
+
+  openaiResponse = openaiResponse.data.choices[0].message.content;
+  return buildResponse({ code: 200, content: openaiResponse });
 };
