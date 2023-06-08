@@ -15,8 +15,8 @@
       "function": {
         "gptTurboFunction": {
           "deploymentBucketName": "amplify-saulchat-dev-173927-deployment",
-          "s3Key": "amplify-builds/gptTurboFunction-3571314a717435354458-build.zip",
-          "openaiKey": "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"
+          "s3Key": "amplify-builds/gptTurboFunction-4a42796f70496c494b51-build.zip",
+          "openaiKey": "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"
         }
       },
       "api": {
