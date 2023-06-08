@@ -21,6 +21,12 @@
       },
       "api": {
         "openai": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d32vkqjztp4926",
+          "type": "cicd"
+        }
       }
     }
   }
