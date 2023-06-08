@@ -22,13 +22,7 @@
       "service": "Lambda"
     }
   },
-  "hosting": {
-    "amplifyhosting": {
-      "lastPushTimeStamp": "2023-06-08T01:40:02.104Z",
-      "service": "amplifyhosting",
-      "type": "cicd"
-    }
-  },
+  "hosting": {},
   "parameters": {
     "AMPLIFY_function_gptTurboFunction_deploymentBucketName": {
       "usedBy": [
@@ -51,22 +45,6 @@
         {
           "category": "function",
           "resourceName": "gptTurboFunction"
-        }
-      ]
-    },
-    "AMPLIFY_hosting_amplifyhosting_appId": {
-      "usedBy": [
-        {
-          "category": "hosting",
-          "resourceName": "amplifyhosting"
-        }
-      ]
-    },
-    "AMPLIFY_hosting_amplifyhosting_type": {
-      "usedBy": [
-        {
-          "category": "hosting",
-          "resourceName": "amplifyhosting"
         }
       ]
     }

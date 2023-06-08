@@ -28,6 +28,8 @@ const buildResponse = ({ code, content }) => {
 
 exports.handler = async (event /** @type {APIGatewayProxyEvent} */) => {
   const prompt = event.body;
+  console.log("API_KEY:", OPENAI_KEY);
+  console.log("PROMTP:", prompt);
   let openaiResponse = await openai.createChatCompletion({
     model: "gpt-3.5-turbo",
     messages: [{ role: "user", content: prompt }],
@@ -36,6 +38,7 @@ exports.handler = async (event /** @type {APIGatewayProxyEvent} */) => {
     frequency_penalty: 0.5,
     presence_penalty: 0.5
   });
+  console.log("RESPONSE:", openaiResponse);
 
   openaiResponse = openaiResponse.data.choices[0].message.content;
   return buildResponse({ code: 200, content: openaiResponse });

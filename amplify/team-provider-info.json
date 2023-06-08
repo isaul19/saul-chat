@@ -15,18 +15,12 @@
       "function": {
         "gptTurboFunction": {
           "deploymentBucketName": "amplify-saulchat-dev-173927-deployment",
-          "s3Key": "amplify-builds/gptTurboFunction-53566b626f493473612f-build.zip",
-          "openaiKey": "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"
+          "s3Key": "amplify-builds/gptTurboFunction-3571314a717435354458-build.zip",
+          "openaiKey": "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"
         }
       },
       "api": {
         "openai": {}
-      },
-      "hosting": {
-        "amplifyhosting": {
-          "appId": "d32vkqjztp4926",
-          "type": "cicd"
-        }
       }
     }
   }
